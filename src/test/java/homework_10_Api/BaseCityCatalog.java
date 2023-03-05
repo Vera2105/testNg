@@ -5,14 +5,14 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseCityCatalog {
     protected RequestSpecification reqSpecCityCatalog;
     protected ResponseSpecification responseSpecCityCatalog;
 
 
-    @BeforeEach
+    @BeforeMethod
     public void setSpecs() {
         reqSpecCityCatalog = new RequestSpecBuilder()
                 .log(LogDetail.ALL)

@@ -19,4 +19,9 @@ public class MainPage extends BasePage{
         printColorMessage("The Issue page was opened", log, Level.INFO);
         return new IssuePage(driver);
     }
+    public RepositoryPage openRepositoryPage(){
+        driver.get("https://github.com/TestAutomation777?tab=repositories");
+        return new RepositoryPage(driver);
+    }
+
 }
