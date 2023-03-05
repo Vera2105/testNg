@@ -2,8 +2,8 @@ package tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -16,7 +16,7 @@ public class SomeTests extends BaseTest{
         HomePage homePage = new HomePage(driver);
         homePage.goToLoginPage();
         LoginPage loginPage = new LoginPage(driver);
-        Assertions.assertTrue(loginPage.getLogo().isDisplayed());
+        Assert.assertTrue(loginPage.getLogo().isDisplayed());
         logger1.info("checkLogoOnThe1loginPage was passed successfully");
     }
 }

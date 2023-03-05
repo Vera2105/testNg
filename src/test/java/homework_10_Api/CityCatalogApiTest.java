@@ -2,9 +2,9 @@ package homework_10_Api;
 
 import dto.CityCatalog;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ public class CityCatalogApiTest extends BaseCityCatalog {
     String API_key = "f643394832e267a849c72208595dc6bb";
     private Map<String, Object> reqBodyCityCatalog = new HashMap<>();
 
-    @BeforeEach
+    @BeforeMethod
     public void setReqBodyCityCatalog() {
         Map<String, Object> methodPropertiesCityCatalog = new HashMap<>();
         methodPropertiesCityCatalog.put("Page", 1);
@@ -75,7 +75,7 @@ public class CityCatalogApiTest extends BaseCityCatalog {
                 .extract()
                 .body().jsonPath().getList("data", CityCatalog.class).stream().filter(el -> el.getAreaDescription().
                         contains("Запорізька")).collect(Collectors.toList());
-        Assertions.assertTrue(cityCatalogList.size() > 0);
+        Assert.assertTrue(cityCatalogList.size() > 0);
     }
 
 
